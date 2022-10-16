@@ -76,7 +76,7 @@
 
 - name: add restart alway to rhel/centos vnc services
   ansible.builtin.lineinfile:
-    path: "/etc/systemd/system/multi-user.target.wants/vncserver@\:{{ displaynumber }}.service"
+    path: "/etc/systemd/system/multi-user.target.wants/vncserver@:{{ displaynumber }}.service"
     line: "Restart=always"
     insertafter: "[Service]"
     state: present
