@@ -19,8 +19,12 @@
   ansible.builtin.user:
     name: "{{ username }}"
     shell: /bin/bash
-    #groups: cdrom,sudo,dip,plugdev,lxd,lpadmin,sambashare 
     groups: cdrom,sudo,dip,plugdev,lxd
-
     append: yes
   when: add_vnc_user
+
+- name: Copy copy polkit permissions fix
+  ansible.builtin.copy:
+    src: files/45-allow-colord.pkla
+    dest: /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
+    remote_src: no
