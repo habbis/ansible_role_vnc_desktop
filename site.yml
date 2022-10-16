@@ -1,11 +1,11 @@
 ---
-- name: setup puppet agent
+- name: setup vnc server
   gather_facts: yes
   remote_user: root
   #remote_user: ansible
   #become: yes
   #become_method: sudo
-  hosts: test
+  hosts: vnc_desktop
   #hosts: puppet-clients
   #hosts: all
   vars_files:

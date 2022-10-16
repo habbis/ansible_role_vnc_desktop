@@ -1,2 +1,10 @@
 ---
-# variables
+username: test1
+add_vnc_user: true
+displaynumber: 1
+# port ranger exampel works with selinux
+# 5985-5999, 5900-5983
+vncpassword: randomting
+password_salt: saltysalt
+vncport: 5985
+desktop: xfce

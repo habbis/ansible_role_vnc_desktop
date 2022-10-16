@@ -1,7 +1,12 @@
-- name: Touch
-  ansible.builtin.file:
-    path: /etc/foo.conf
-    state: touch
-    mode: u+rw,g-wx,o-rwx
-    modification_time: preserve
-    access_time: preserve
+- name: Install vnc package and epel centos and RHEL
+  ansible.builtin.yum:
+    name:
+      - epel-release
+      - tigervnc-server
+    state: present
+
+- name: Install packages centos and RHEL
+  ansible.builtin.yum:
+    name:
+      - "@xfce"
+    state: present
