@@ -81,6 +81,7 @@
     insertafter: "[Service]"
     state: present
   when: (ansible_os_family == 'RedHat' or ansible_pkg_mgr == "dnf" or ansible_pkg_mgr == "yum")
+  ignore_errors: true
 
 - name: add restart alway to debian/ubuntu vnc services
   ansible.builtin.lineinfile:
@@ -89,6 +90,7 @@
     insertafter: "[Service]"
     state: present
   when: (ansible_distribution == "Ubuntu" or ansible_distribution == "Debian")
+  ignore_errors: true
 
 - name: Just force systemd to reread configs
   ansible.builtin.systemd:
