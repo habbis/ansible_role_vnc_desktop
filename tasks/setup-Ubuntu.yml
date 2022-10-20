@@ -21,7 +21,7 @@
       - xfce4
       - xfce4-goodies
     state: present
-    
+
 - name: add lxd group
   ansible.builtin.group:
     name: lxd
