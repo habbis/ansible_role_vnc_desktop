@@ -67,9 +67,10 @@
     path: "/home/{{ username }}/.vnc/passwd"
   when: ( not vnc_passwd_file.stat.exists )
 
-- name: insert diplay number for vnc
+- name: update diplay number for vnc
   ansible.builtin.lineinfile:
     path: /etc/tigervnc/vncserver.users
+    regexp: '^\:{{ displaynumber }}'
     line: ":{{ displaynumber }}={{ username }}"
     insertafter: #
     state: present
