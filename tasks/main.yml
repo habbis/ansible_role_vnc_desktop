@@ -83,6 +83,7 @@
     insertafter: "[Install]"
     state: present
   when: (ansible_os_family == 'RedHat' or ansible_pkg_mgr == "dnf" or ansible_pkg_mgr == "yum")
+  retries: 2
   ignore_errors: true
 
 - name: add restart alway to debian/ubuntu vnc services
