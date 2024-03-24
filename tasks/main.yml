@@ -80,7 +80,8 @@
   ansible.builtin.lineinfile:
     path: "/etc/systemd/system/multi-user.target.wants/vncserver@:{{ displaynumber }}.service"
     line: "Restart=always"
-    insertafter: "[Service]"
+    #insertafter: "[Service]"
+    insertafter: "Type=forking"
     state: present
   when: (ansible_os_family == 'RedHat' or ansible_pkg_mgr == "dnf" or ansible_pkg_mgr == "yum")
   retries: 2
